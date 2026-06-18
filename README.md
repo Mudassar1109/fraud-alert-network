@@ -34,3 +34,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Deployment Checklist
+
+- **Create GitHub repo:** initialize local git and push to GitHub.
+- **Connect to Vercel:** import the GitHub repo in Vercel.
+- **Set Vercel env vars:** add `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` (production) in project settings.
+- **Enable HTTPS:** Vercel provides HTTPS automatically for deployments.
+- **Verify build:** ensure `npm run build` passes (CI will run it).
+- **Verify runtime:** open deployed site and test the report form and reports list.
+
+Local commands before pushing:
+
+```bash
+git init
+git add .
+git commit -m "chore: initial commit"
+# Create remote on GitHub (use gh CLI or create manually), then push:
+# gh repo create <owner>/<repo> --public --source=. --remote=origin --push
+git push -u origin main
+```
+
+Vercel import notes:
+- When importing, Vercel will detect Next.js and use the `build` script.
+- Add the env vars in Vercel UI using the names shown in `.env.example`.
+
+I can attempt to create the GitHub repo and push if you confirm and have `gh` authenticated.
