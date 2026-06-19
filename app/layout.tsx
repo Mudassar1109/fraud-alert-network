@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Fraud Alert Network",
   description: "A full scam reporting platform for phone numbers, fake websites, phishing emails, and fraud alerts.",
+  verification: {
+    google: "bpTi4vUgW5NiO_WeEkhd5I7DFdB1u36VMs5OPQa6pUE",
+  },
 };
 
 export default function RootLayout({
