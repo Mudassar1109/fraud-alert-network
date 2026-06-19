@@ -85,75 +85,75 @@ export default function FAQPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white py-20">
+    <main className="min-h-screen bg-white text-gray-900 py-12 sm:py-16">
       <div className="mx-auto max-w-4xl px-6">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-red-300 hover:text-red-100 transition mb-10"
+          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 transition font-semibold mb-10"
         >
           ← Back to Home
         </Link>
 
-        <h1 className="text-5xl font-bold mb-4">Frequently Asked Questions</h1>
-        <p className="text-slate-400 mb-10">Find answers to common questions about Fraud Alert Network</p>
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
+        <p className="text-lg text-gray-600 mb-10">Find answers to common questions about Fraud Alert Network</p>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group rounded-lg border border-white/10 bg-slate-900/50 p-6 hover:border-red-500/40 transition"
+              className="group rounded-lg border border-gray-200 bg-white p-6 hover:border-blue-400 hover:shadow-md transition"
             >
-              <summary className="flex cursor-pointer items-center justify-between text-lg font-semibold text-white">
+              <summary className="flex cursor-pointer items-center justify-between text-lg font-semibold text-gray-900">
                 {faq.question}
-                <span className="text-red-300 group-open:rotate-180 transition">▼</span>
+                <span className="text-blue-600 group-open:rotate-180 transition">▼</span>
               </summary>
-              <p className="mt-4 text-slate-300 leading-relaxed">{faq.answer}</p>
+              <p className="mt-4 text-gray-600 leading-relaxed">{faq.answer}</p>
             </details>
           ))}
         </div>
 
-        <div className="mt-12 p-6 rounded-lg border border-blue-500/30 bg-blue-500/10">
-          <h2 className="text-xl font-semibold text-blue-200 mb-3">Didn't find your answer?</h2>
-          <p className="text-blue-100 mb-4">
+        <div className="mt-12 p-8 rounded-lg border border-blue-300 bg-blue-50">
+          <h2 className="text-xl font-bold text-blue-900 mb-3">Didn't find your answer?</h2>
+          <p className="text-blue-800 mb-4">
             Contact our support team for additional assistance:
           </p>
-          <div className="space-y-2 text-blue-100">
+          <div className="space-y-2 text-blue-900">
             <p>
               📧 General inquiries:{" "}
-              <a href="mailto:support@fraudalertnetwork.com" className="hover:text-blue-200">
+              <a href="mailto:support@fraudalertnetwork.com" className="font-semibold hover:text-blue-700">
                 support@fraudalertnetwork.com
               </a>
             </p>
             <p>
               🔒 Privacy concerns:{" "}
-              <a href="mailto:privacy@fraudalertnetwork.com" className="hover:text-blue-200">
+              <a href="mailto:privacy@fraudalertnetwork.com" className="font-semibold hover:text-blue-700">
                 privacy@fraudalertnetwork.com
               </a>
             </p>
             <p>
               ⚠️ Report abuse:{" "}
-              <a href="mailto:abuse@fraudalertnetwork.com" className="hover:text-blue-200">
+              <a href="mailto:abuse@fraudalertnetwork.com" className="font-semibold hover:text-blue-700">
                 abuse@fraudalertnetwork.com
               </a>
             </p>
           </div>
         </div>
 
-        <div className="mt-8 space-y-3 text-center text-sm text-slate-400">
+        <div className="mt-8 space-y-3 text-center text-sm text-gray-600">
           <p>
-            <Link href="/privacy" className="text-red-300 hover:text-red-100">
+            <Link href="/privacy" className="text-blue-600 hover:text-blue-700 font-semibold">
               Privacy Policy
             </Link>
             {" • "}
-            <Link href="/terms" className="text-red-300 hover:text-red-100">
+            <Link href="/terms" className="text-blue-600 hover:text-blue-700 font-semibold">
               Terms of Service
             </Link>
             {" • "}
-            <Link href="/disclaimer" className="text-red-300 hover:text-red-100">
+            <Link href="/disclaimer" className="text-blue-600 hover:text-blue-700 font-semibold">
               Disclaimer
             </Link>
             {" • "}
-            <Link href="/community-guidelines" className="text-red-300 hover:text-red-100">
+            <Link href="/community-guidelines" className="text-blue-600 hover:text-blue-700 font-semibold">
               Community Guidelines
             </Link>
           </p>

@@ -56,14 +56,14 @@ export function ToastContainer() {
       {toasts.map((toast) => (
         <div
           key={toast.id}
-          className={`rounded-lg px-5 py-4 shadow-lg border pointer-events-auto animate-in slide-in-from-right-full ${
+          className={`rounded-lg px-4 py-3 shadow-lg border pointer-events-auto animate-in slide-in-from-right-full ${
             toast.type === "success"
-              ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-300"
+              ? "bg-emerald-50 border-emerald-300 text-emerald-900"
               : toast.type === "error"
-                ? "bg-red-500/10 border-red-500/30 text-red-300"
+                ? "bg-red-50 border-red-300 text-red-900"
                 : toast.type === "warning"
-                  ? "bg-amber-500/10 border-amber-500/30 text-amber-300"
-                  : "bg-blue-500/10 border-blue-500/30 text-blue-300"
+                  ? "bg-amber-50 border-amber-300 text-amber-900"
+                  : "bg-blue-50 border-blue-300 text-blue-900"
           }`}
         >
           <p className="text-sm font-medium">{toast.message}</p>

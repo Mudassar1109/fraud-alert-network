@@ -207,35 +207,32 @@ export default function HomePage() {
   }
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-slate-950 text-white">
+    <main className="min-h-screen overflow-x-hidden bg-white text-gray-900">
       <ToastContainer />
 
       <div className="relative isolate overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(248,113,113,0.18),_transparent_35%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(239,68,68,0.16),_transparent_32%)]" />
-        <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-24">
-          <div className="mx-auto max-w-4xl rounded-[2rem] border border-white/10 bg-slate-900/80 p-10 shadow-2xl shadow-red-500/10 backdrop-blur-2xl">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(37,99,235,0.02)_1px,transparent_1px),linear-gradient(rgba(37,99,235,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="relative mx-auto max-w-7xl px-6 py-20">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-gray-200 bg-white p-8 sm:p-12 shadow-lg">
             <div className="space-y-6 text-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-red-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-red-300">
-                🛡️ Live fraud reporting network
+              <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-blue-600">
+                🛡️ Live Fraud Reporting Network
               </span>
-              <h1 className="text-5xl font-semibold tracking-tight text-white sm:text-6xl">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900">
                 Fraud Alert Network
               </h1>
-              <p className="mx-auto max-w-3xl text-lg leading-8 text-slate-300 sm:text-xl">
-                Report scam phone numbers, fake websites, phishing emails,
-                investment frauds and online criminals with a secure
-                community-powered platform.
+              <p className="mx-auto max-w-3xl text-lg leading-8 text-gray-600">
+                Report scam phone numbers, fake websites, phishing emails, investment frauds and online criminals with a secure community-powered platform.
               </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
                 <button
                   onClick={() =>
                     document
                       .getElementById("report-form")
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-red-600 via-red-500 to-rose-500 px-7 py-3 text-base font-semibold text-white shadow-lg shadow-red-500/30 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-red-500/50"
+                  className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-md hover:shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 transform hover:scale-[1.02]"
                 >
                   Report a Scam
                 </button>
@@ -245,7 +242,7 @@ export default function HomePage() {
                       .getElementById("latest-reports")
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-7 py-3 text-base font-semibold text-white transition hover:border-red-400/50 hover:text-red-300"
+                  className="inline-flex items-center justify-center rounded-lg border-2 border-gray-300 bg-white px-8 py-3 text-base font-semibold text-gray-900 transition-all duration-200 hover:border-blue-600 hover:text-blue-600"
                 >
                   View Latest Reports
                 </button>
@@ -255,8 +252,8 @@ export default function HomePage() {
         </div>
       </div>
 
-      <section className="mx-auto max-w-7xl px-6 pb-16 pt-10">
-        <div className="grid gap-6 lg:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-6 py-12 sm:py-16">
+        <div className="grid gap-6 md:grid-cols-3">
           {loadingReports ? (
             <>
               <StatCardSkeleton />
@@ -265,39 +262,48 @@ export default function HomePage() {
             </>
           ) : (
             <>
-              <div className="group rounded-[2rem] border border-white/10 bg-slate-900/80 p-8 shadow-xl shadow-red-500/10 transition duration-300 hover:-translate-y-1 hover:border-red-500/40">
-                <p className="text-sm uppercase tracking-[0.35em] text-red-300">
-                  📊 Total Scam Reports
-                </p>
-                <p className="mt-6 text-5xl font-semibold text-white">
+              <div className="group rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-sm font-semibold uppercase tracking-wider text-gray-600">
+                    Total Scam Reports
+                  </p>
+                  <span className="text-3xl">📊</span>
+                </div>
+                <p className="text-4xl sm:text-5xl font-bold text-blue-600">
                   {stats.totalReports.toLocaleString()}
                 </p>
-                <p className="mt-4 text-slate-400">
-                  Real-time report volume pulled directly from Supabase.
+                <p className="mt-3 text-sm text-gray-600">
+                  Real-time reports from our community.
                 </p>
               </div>
 
-              <div className="group rounded-[2rem] border border-white/10 bg-slate-900/80 p-8 shadow-xl shadow-red-500/10 transition duration-300 hover:-translate-y-1 hover:border-red-500/40">
-                <p className="text-sm uppercase tracking-[0.35em] text-red-300">
-                  📞 Total Scam Numbers
-                </p>
-                <p className="mt-6 text-5xl font-semibold text-white">
+              <div className="group rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-sm font-semibold uppercase tracking-wider text-gray-600">
+                    Scam Phone Numbers
+                  </p>
+                  <span className="text-3xl">📞</span>
+                </div>
+                <p className="text-4xl sm:text-5xl font-bold text-indigo-600">
                   {stats.totalScamNumbers.toLocaleString()}
                 </p>
-                <p className="mt-4 text-slate-400">
-                  Unique scam phone numbers flagged by the community.
+                <p className="mt-3 text-sm text-gray-600">
+                  Unique scam numbers flagged.
                 </p>
               </div>
 
-              <div className="group rounded-[2rem] border border-white/10 bg-slate-900/80 p-8 shadow-xl shadow-red-500/10 transition duration-300 hover:-translate-y-1 hover:border-red-500/40">
-                <p className="text-sm uppercase tracking-[0.35em] text-red-300">
-                  🛡️ Protected Users
-                </p>
-                <p className="mt-6 text-5xl font-semibold text-white">
+              <div className="group rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-sm font-semibold uppercase tracking-wider text-gray-600">
+                    Protected Users
+                  </p>
+                  <span className="text-3xl">🛡️</span>
+                </div>
+                <p className="text-4xl sm:text-5xl font-bold text-emerald-600">
                   {stats.protectedUsers.toLocaleString()}
                 </p>
-                <p className="mt-4 text-slate-400">
-                  Number of unique users protected by shared scam intelligence.
+                <p className="mt-3 text-sm text-gray-600">
+                  Users protected by our intelligence.
                 </p>
               </div>
             </>
@@ -307,26 +313,27 @@ export default function HomePage() {
 
       <section
         id="report-form"
-        className="mx-auto max-w-6xl px-6 pb-20"
+        className="mx-auto max-w-6xl px-6 py-12 sm:py-16"
       >
-        <div className="rounded-[2rem] border border-white/10 bg-slate-900/80 p-8 shadow-2xl shadow-red-500/10 backdrop-blur-2xl">
+        <div className="rounded-2xl border border-gray-200 bg-white p-8 sm:p-12 shadow-lg">
           <div className="mb-10 text-center">
-            <p className="text-sm uppercase tracking-[0.3em] text-red-300">
-              ✍️ Secure report submission
+            <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
+              ✍️ Secure Report Submission
             </p>
-            <h2 className="mt-4 text-4xl font-semibold text-white">
+            <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-gray-900">
               Report a Scam
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-slate-400">
-              Submit details safely, and every report is stored in Supabase
-              for community transparency and fast incident response.
+            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+              Submit details about suspicious activity securely. Every report is stored and used to protect our community.
             </p>
           </div>
 
-          <div className="grid gap-6 rounded-[2rem] border border-white/10 bg-black/40 p-8">
+          <div className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-2">
-              <label className="grid gap-2 text-sm text-slate-300">
-                Reporter Name *
+              <label className="block">
+                <span className="text-sm font-semibold text-gray-900">
+                  Reporter Name <span className="text-red-600">*</span>
+                </span>
                 <input
                   value={form.reporterName}
                   onChange={(event) =>
@@ -334,24 +341,26 @@ export default function HomePage() {
                   }
                   placeholder="Your full name"
                   maxLength={100}
-                  className={`w-full rounded-3xl border px-5 py-4 text-white outline-none transition ${
+                  className={`mt-2 w-full rounded-lg border px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition ${
                     errors.reporterName
-                      ? "border-red-500 bg-red-500/10"
-                      : "border-white/10 bg-slate-950/70"
+                      ? "border-red-500 bg-red-50"
+                      : "border-gray-300 bg-white hover:border-gray-400 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20"
                   }`}
                 />
                 {errors.reporterName && (
-                  <span className="text-sm text-red-400">
+                  <span className="mt-1 block text-sm text-red-600">
                     {errors.reporterName}
                   </span>
                 )}
-                <span className="text-xs text-slate-500">
+                <span className="mt-1 block text-xs text-gray-500">
                   {form.reporterName.length}/100 characters
                 </span>
               </label>
 
-              <label className="grid gap-2 text-sm text-slate-300">
-                Phone Number *
+              <label className="block">
+                <span className="text-sm font-semibold text-gray-900">
+                  Phone Number <span className="text-red-600">*</span>
+                </span>
                 <input
                   value={form.phoneNumber}
                   onChange={(event) =>
@@ -359,21 +368,23 @@ export default function HomePage() {
                   }
                   placeholder="+1 555 123 4567"
                   maxLength={20}
-                  className={`w-full rounded-3xl border px-5 py-4 text-white outline-none transition ${
+                  className={`mt-2 w-full rounded-lg border px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition ${
                     errors.phoneNumber
-                      ? "border-red-500 bg-red-500/10"
-                      : "border-white/10 bg-slate-950/70"
+                      ? "border-red-500 bg-red-50"
+                      : "border-gray-300 bg-white hover:border-gray-400 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20"
                   }`}
                 />
                 {errors.phoneNumber && (
-                  <span className="text-sm text-red-400">
+                  <span className="mt-1 block text-sm text-red-600">
                     {errors.phoneNumber}
                   </span>
                 )}
               </label>
 
-              <label className="grid gap-2 text-sm text-slate-300">
-                Email Address *
+              <label className="block">
+                <span className="text-sm font-semibold text-gray-900">
+                  Email Address <span className="text-red-600">*</span>
+                </span>
                 <input
                   type="email"
                   value={form.email}
@@ -382,21 +393,23 @@ export default function HomePage() {
                   }
                   placeholder="reporter@example.com"
                   maxLength={100}
-                  className={`w-full rounded-3xl border px-5 py-4 text-white outline-none transition ${
+                  className={`mt-2 w-full rounded-lg border px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition ${
                     errors.email
-                      ? "border-red-500 bg-red-500/10"
-                      : "border-white/10 bg-slate-950/70"
+                      ? "border-red-500 bg-red-50"
+                      : "border-gray-300 bg-white hover:border-gray-400 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20"
                   }`}
                 />
                 {errors.email && (
-                  <span className="text-sm text-red-400">
+                  <span className="mt-1 block text-sm text-red-600">
                     {errors.email}
                   </span>
                 )}
               </label>
 
-              <label className="grid gap-2 text-sm text-slate-300">
-                Website URL *
+              <label className="block">
+                <span className="text-sm font-semibold text-gray-900">
+                  Website URL <span className="text-red-600">*</span>
+                </span>
                 <input
                   value={form.website}
                   onChange={(event) =>
@@ -404,30 +417,32 @@ export default function HomePage() {
                   }
                   placeholder="https://example.com"
                   maxLength={500}
-                  className={`w-full rounded-3xl border px-5 py-4 text-white outline-none transition ${
+                  className={`mt-2 w-full rounded-lg border px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition ${
                     errors.website
-                      ? "border-red-500 bg-red-500/10"
-                      : "border-white/10 bg-slate-950/70"
+                      ? "border-red-500 bg-red-50"
+                      : "border-gray-300 bg-white hover:border-gray-400 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20"
                   }`}
                 />
                 {errors.website && (
-                  <span className="text-sm text-red-400">
+                  <span className="mt-1 block text-sm text-red-600">
                     {errors.website}
                   </span>
                 )}
               </label>
 
-              <label className="grid gap-2 text-sm text-slate-300">
-                Scam Type *
+              <label className="block">
+                <span className="text-sm font-semibold text-gray-900">
+                  Scam Type <span className="text-red-600">*</span>
+                </span>
                 <select
                   value={form.scamType}
                   onChange={(event) =>
                     updateField("scamType", event.target.value)
                   }
-                  className={`w-full rounded-3xl border px-5 py-4 text-white outline-none transition ${
+                  className={`mt-2 w-full rounded-lg border px-4 py-3 text-gray-900 outline-none transition ${
                     errors.scamType
-                      ? "border-red-500 bg-red-500/10"
-                      : "border-white/10 bg-slate-950/70"
+                      ? "border-red-500 bg-red-50"
+                      : "border-gray-300 bg-white hover:border-gray-400 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20"
                   }`}
                 >
                   <option value="">Choose a category</option>
@@ -440,15 +455,17 @@ export default function HomePage() {
                     ))}
                 </select>
                 {errors.scamType && (
-                  <span className="text-sm text-red-400">
+                  <span className="mt-1 block text-sm text-red-600">
                     {errors.scamType}
                   </span>
                 )}
               </label>
             </div>
 
-            <label className="grid gap-2 text-sm text-slate-300">
-              Description *
+            <label className="block">
+              <span className="text-sm font-semibold text-gray-900">
+                Description <span className="text-red-600">*</span>
+              </span>
               <textarea
                 rows={6}
                 value={form.description}
@@ -457,23 +474,23 @@ export default function HomePage() {
                 }
                 placeholder="Describe the scam, what happened and any suspicious details."
                 maxLength={2000}
-                className={`w-full rounded-[1.75rem] border px-5 py-4 text-white outline-none transition resize-none ${
+                className={`mt-2 w-full rounded-lg border px-4 py-3 text-gray-900 placeholder-gray-400 outline-none transition resize-none ${
                   errors.description
-                    ? "border-red-500 bg-red-500/10"
-                    : "border-white/10 bg-slate-950/70"
+                    ? "border-red-500 bg-red-50"
+                    : "border-gray-300 bg-white hover:border-gray-400 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20"
                 }`}
               />
               {errors.description && (
-                <span className="text-sm text-red-400">
+                <span className="mt-1 block text-sm text-red-600">
                   {errors.description}
                 </span>
               )}
-              <span className="text-xs text-slate-500">
+              <span className="mt-1 block text-xs text-gray-500">
                 {form.description.length}/2000 characters (minimum 10)
               </span>
             </label>
 
-            <div className="rounded-lg border border-blue-500/30 bg-blue-500/10 p-4">
+            <div className="rounded-lg border border-blue-300 bg-blue-50 p-4">
               <label className="flex items-start gap-3">
                 <input
                   type="checkbox"
@@ -481,39 +498,39 @@ export default function HomePage() {
                   onChange={(event) =>
                     updateField("consent", event.target.checked)
                   }
-                  className="mt-1 rounded border-white/20 bg-slate-950 text-red-500"
+                  className="mt-1 h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                 />
-                <span className="text-sm text-blue-100">
+                <span className="text-sm text-gray-700">
                   I have read and agree to the{" "}
-                  <Link href="/privacy" className="text-red-300 hover:text-red-100 underline">
+                  <Link href="/privacy" className="font-semibold text-blue-600 hover:text-blue-700">
                     Privacy Policy
                   </Link>
                   ,{" "}
-                  <Link href="/terms" className="text-red-300 hover:text-red-100 underline">
+                  <Link href="/terms" className="font-semibold text-blue-600 hover:text-blue-700">
                     Terms of Service
                   </Link>
                   , and{" "}
-                  <Link href="/disclaimer" className="text-red-300 hover:text-red-100 underline">
+                  <Link href="/disclaimer" className="font-semibold text-blue-600 hover:text-blue-700">
                     Disclaimer
                   </Link>
                   . I understand my report will be public and that I am responsible for its accuracy.
                 </span>
               </label>
               {errors.consent && (
-                <p className="mt-2 text-sm text-red-400">{errors.consent}</p>
+                <p className="mt-2 text-sm text-red-600">{errors.consent}</p>
               )}
             </div>
 
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div className="text-sm text-slate-400">
-                All fields marked with * are required.
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pt-6">
+              <div className="text-sm text-gray-600">
+                All fields marked with <span className="text-red-600 font-semibold">*</span> are required.
               </div>
 
               <button
                 type="button"
                 disabled={!isFormValid || submitting}
                 onClick={handleSubmit}
-                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-red-600 via-red-500 to-rose-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-red-500/30 transition duration-300 hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-md hover:shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
               >
                 {submitting ? (
                   <span className="inline-flex items-center gap-3">
@@ -531,15 +548,15 @@ export default function HomePage() {
 
       <section
         id="latest-reports"
-        className="mx-auto max-w-7xl px-6 pb-16"
+        className="mx-auto max-w-7xl px-6 py-12 sm:py-16"
       >
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.28em] text-red-300">
+            <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
               📋 Latest Scam Reports
             </p>
-            <h2 className="mt-3 text-4xl font-semibold text-white">
-              Community fraud intelligence
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-gray-900">
+              Community Fraud Intelligence
             </h2>
           </div>
 
@@ -550,10 +567,10 @@ export default function HomePage() {
                   key={category}
                   type="button"
                   onClick={() => setActiveCategory(category)}
-                  className={`rounded-full border px-4 py-2 text-sm transition ${
+                  className={`rounded-lg border px-4 py-2 text-sm font-medium transition ${
                     activeCategory === category
-                      ? "border-red-500 bg-red-500/15 text-red-200"
-                      : "border-white/10 bg-white/5 text-slate-300 hover:border-red-400/60 hover:bg-red-500/10"
+                      ? "border-blue-600 bg-blue-50 text-blue-700"
+                      : "border-gray-300 bg-white text-gray-700 hover:border-blue-400 hover:text-blue-600"
                   }`}
                 >
                   {category}
@@ -565,156 +582,170 @@ export default function HomePage() {
               <input
                 value={searchText}
                 onChange={(event) => setSearchText(event.target.value)}
-                placeholder="Search by phone, email, website, type..."
-                className="w-full rounded-full border border-white/10 bg-slate-950/80 px-5 py-3 pr-12 text-sm text-white outline-none transition focus:border-red-400 focus:ring-2 focus:ring-red-400/20 sm:w-[28rem]"
+                placeholder="Search by phone, email, website..."
+                className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 pr-12 text-sm text-gray-900 placeholder-gray-400 outline-none transition hover:border-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 sm:w-auto"
               />
-              <span className="pointer-events-none absolute inset-y-0 right-4 grid place-items-center text-red-300">
+              <span className="pointer-events-none absolute inset-y-0 right-4 grid place-items-center text-gray-400">
                 🔍
               </span>
             </div>
           </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {loadingReports ? (
             <ReportCardSkeletonGrid />
           ) : filteredReports.length === 0 ? (
-            <div className="col-span-full rounded-[2rem] border border-dashed border-white/10 bg-slate-900/70 p-12 text-center">
-              <p className="text-xl font-semibold text-white">
+            <div className="col-span-full rounded-xl border border-dashed border-gray-300 bg-gray-50 p-12 text-center">
+              <p className="text-lg font-semibold text-gray-900">
                 No matching reports found.
               </p>
-              <p className="mt-4 text-slate-400">
+              <p className="mt-2 text-gray-600">
                 Try a different search term or select another scam category.
               </p>
             </div>
           ) : (
-            filteredReports.map((report) => (
-              <article
-                key={report.id}
-                className="rounded-[2rem] border border-white/10 bg-slate-900/75 p-8 shadow-xl shadow-red-500/10 transition duration-300 hover:-translate-y-1 hover:border-red-500/40"
-              >
-                <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-                  <span className="rounded-full bg-red-500/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.25em] text-red-300">
-                    {report.scam_type || "Unknown"}
-                  </span>
-                  <span className="rounded-full border border-white/10 bg-slate-950/80 px-4 py-2 text-xs tracking-[0.2em] text-slate-400">
-                    {new Date(report.created_at).toLocaleString("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                      hour: "numeric",
-                      minute: "2-digit",
-                    })}
-                  </span>
-                </div>
+            filteredReports.map((report) => {
+              const categoryColors: Record<string, { badge: string; text: string; icon: string }> = {
+                "WhatsApp Scam": { badge: "bg-blue-100 text-blue-800", text: "text-blue-600", icon: "💬" },
+                "Investment Fraud": { badge: "bg-purple-100 text-purple-800", text: "text-purple-600", icon: "💰" },
+                "Fake Website": { badge: "bg-cyan-100 text-cyan-800", text: "text-cyan-600", icon: "🌐" },
+                "Phishing": { badge: "bg-orange-100 text-orange-800", text: "text-orange-600", icon: "🎣" },
+                "Crypto Scam": { badge: "bg-yellow-100 text-yellow-800", text: "text-yellow-600", icon: "🪙" },
+                "Job Scam": { badge: "bg-indigo-100 text-indigo-800", text: "text-indigo-600", icon: "💼" },
+                "Banking Fraud": { badge: "bg-emerald-100 text-emerald-800", text: "text-emerald-600", icon: "🏦" },
+              };
+              
+              const categoryColor = categoryColors[report.scam_type || ""] || { badge: "bg-gray-100 text-gray-800", text: "text-gray-600", icon: "⚠️" };
 
-                <p className="text-lg leading-8 text-slate-300 mb-6">
-                  {report.description || "No description provided"}
-                </p>
+              return (
+                <article
+                  key={report.id}
+                  className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-all duration-200"
+                >
+                  <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                    <span className={`inline-flex items-center gap-2 rounded-lg px-3 py-1 text-sm font-semibold ${categoryColor.badge}`}>
+                      {categoryColor.icon} {report.scam_type || "Unknown"}
+                    </span>
+                    <span className="rounded-lg border border-gray-300 bg-gray-50 px-3 py-1 text-xs text-gray-600 font-medium">
+                      {new Date(report.created_at).toLocaleString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                        hour: "numeric",
+                        minute: "2-digit",
+                      })}
+                    </span>
+                  </div>
 
-                <div className="space-y-3 border-t border-white/10 pt-6">
-                  {report.phone_number && (
-                    <div className="flex items-start gap-3 text-sm">
-                      <span className="text-red-300">📞</span>
-                      <div>
-                        <p className="text-xs text-slate-500">Phone Number</p>
-                        <p className="text-slate-300 font-mono">{report.phone_number}</p>
+                  <p className="mb-4 leading-relaxed text-gray-700">
+                    {report.description || "No description provided"}
+                  </p>
+
+                  <div className="space-y-3 border-t border-gray-200 pt-4">
+                    {report.phone_number && (
+                      <div className="flex items-start gap-3">
+                        <span className="text-lg text-blue-600">📞</span>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-semibold text-gray-500 uppercase">Phone Number</p>
+                          <p className="mt-1 break-all font-mono text-sm text-gray-900">{report.phone_number}</p>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  
-                  {report.email && (
-                    <div className="flex items-start gap-3 text-sm">
-                      <span className="text-red-300">✉️</span>
-                      <div>
-                        <p className="text-xs text-slate-500">Email Address</p>
-                        <p className="text-slate-300 break-all">{report.email}</p>
+                    )}
+                    
+                    {report.email && (
+                      <div className="flex items-start gap-3">
+                        <span className="text-lg text-purple-600">✉️</span>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-semibold text-gray-500 uppercase">Email Address</p>
+                          <p className="mt-1 break-all text-sm text-gray-900">{report.email}</p>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  
-                  {report.website && (
-                    <div className="flex items-start gap-3 text-sm">
-                      <span className="text-red-300">🌐</span>
-                      <div>
-                        <p className="text-xs text-slate-500">Website</p>
-                        <a
-                          href={report.website}
-                          target="_blank"
-                          rel="noreferrer noopener"
-                          className="text-red-300 hover:text-red-100 break-all"
-                        >
-                          {report.website}
-                        </a>
+                    )}
+                    
+                    {report.website && (
+                      <div className="flex items-start gap-3">
+                        <span className="text-lg text-cyan-600">🌐</span>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-semibold text-gray-500 uppercase">Website</p>
+                          <a
+                            href={report.website}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="mt-1 break-all text-sm font-semibold text-blue-600 hover:text-blue-700"
+                          >
+                            {report.website}
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  
-                  {report.reporter_name && (
-                    <div className="flex items-start gap-3 text-sm">
-                      <span className="text-red-300">👤</span>
-                      <div>
-                        <p className="text-xs text-slate-500">Reporter</p>
-                        <p className="text-slate-300">{report.reporter_name}</p>
+                    )}
+                    
+                    {report.reporter_name && (
+                      <div className="flex items-start gap-3">
+                        <span className="text-lg">👤</span>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-semibold text-gray-500 uppercase">Reporter</p>
+                          <p className="mt-1 text-sm text-gray-900">{report.reporter_name}</p>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </div>
-              </article>
-            ))
+                    )}
+                  </div>
+                </article>
+              );
+            })
           )}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="grid gap-6 lg:grid-cols-3">
-          <div className="rounded-[2rem] border border-white/10 bg-slate-900/80 p-8">
-            <h3 className="text-xl font-semibold text-white mb-4">🔒 Security</h3>
-            <p className="text-slate-400">
+      <section className="mx-auto max-w-7xl px-6 py-12 sm:py-16">
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all">
+            <h3 className="text-lg font-bold text-gray-900 mb-3">🔒 Security</h3>
+            <p className="text-gray-600 text-sm">
               All submissions are validated and protected with industry-standard security measures.
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-slate-900/80 p-8">
-            <h3 className="text-xl font-semibold text-white mb-4">🛡️ Privacy</h3>
-            <p className="text-slate-400">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all">
+            <h3 className="text-lg font-bold text-gray-900 mb-3">🛡️ Privacy</h3>
+            <p className="text-gray-600 text-sm">
               Your data is encrypted and stored securely. See our privacy policy for more details.
             </p>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-slate-900/80 p-8">
-            <h3 className="text-xl font-semibold text-white mb-4">✅ Trust</h3>
-            <p className="text-slate-400">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-md transition-all">
+            <h3 className="text-lg font-bold text-gray-900 mb-3">✅ Trust</h3>
+            <p className="text-gray-600 text-sm">
               Community-driven and transparent. Read our FAQ and community guidelines.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-900/50 border-t border-white/10 py-16">
+      <section className="border-t border-gray-200 bg-gray-50 py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Learn More</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/faq" className="inline-flex items-center gap-2 text-red-300 hover:text-red-100">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Learn More</h2>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm sm:text-base">
+            <Link href="/faq" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold">
               ❓ FAQ
             </Link>
-            <Link href="/community-guidelines" className="inline-flex items-center gap-2 text-red-300 hover:text-red-100">
-              📋 Community Guidelines
+            <Link href="/privacy" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold">
+              🔐 Privacy Policy
             </Link>
-            <Link href="/privacy" className="inline-flex items-center gap-2 text-red-300 hover:text-red-100">
-              🔒 Privacy Policy
-            </Link>
-            <Link href="/terms" className="inline-flex items-center gap-2 text-red-300 hover:text-red-100">
+            <Link href="/terms" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold">
               ⚖️ Terms of Service
             </Link>
-            <Link href="/disclaimer" className="inline-flex items-center gap-2 text-red-300 hover:text-red-100">
+            <Link href="/disclaimer" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold">
               ⚠️ Disclaimer
+            </Link>
+            <Link href="/community-guidelines" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold">
+              👥 Community Guidelines
             </Link>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/10 bg-slate-950/90 px-6 py-10 text-center text-slate-500">
+      <footer className="border-t border-gray-200 bg-gray-50 px-6 py-8 text-center text-gray-600">
         © 2026 Fraud Alert Network • Community Powered Scam Protection
       </footer>
     </main>
